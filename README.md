@@ -1,10 +1,12 @@
 # minecraft-motd-util
 Parse and convert a Minecraft MOTD into various formats.
 
+Fork of [PassTheMayo/minecraft-motd-util](https://github.com/PassTheMayo/minecraft-motd-util).
+
 ## Installation
 
 ```bash
-npm install minecraft-motd-util
+npm install @rlqd/minecraft-motd-util
 ```
 
 ## Usage
@@ -13,7 +15,7 @@ npm install minecraft-motd-util
 `parse(input, options)` will parse an MOTD into an array of tokens for easier formatting and generic use. The result of this method can be used as an argument to any other utility that uses an MOTD input. You can supply either a string or a [Chat](https://wiki.vg/Chat) object as the input.
 
 ```js
-import { parse } from 'minecraft-motd-util';
+import { parse } from '@rlqd/minecraft-motd-util';
 
 // Defaults
 const options = {
@@ -36,7 +38,7 @@ console.log(result);
 `format(input, options)` will format the parsed tree or string back into a normalized string with the provided formatting character. Note that this method will prefer resetting color over using `§r`.
 
 ```js
-import { format } from 'minecraft-motd-util';
+import { format } from '@rlqd/minecraft-motd-util';
 
 // Defaults
 const options = {
@@ -53,7 +55,7 @@ console.log(result);
 `clean(tree, options)` will remove all formatting codes and characters from the string with the implied formatting character.
 
 ```js
-import { clean } from 'minecraft-motd-util';
+import { clean } from '@rlqd/minecraft-motd-util';
 
 // Defaults
 const options = {
@@ -70,7 +72,7 @@ console.log(result);
 `toHTML(input, options)` will convert the formatted string or parsed MOTD into an HTML string.
 
 ```js
-import { toHTML } from 'minecraft-motd-util';
+import { toHTML } from '@rlqd/minecraft-motd-util';
 
 // Defaults
 const options = {
@@ -83,7 +85,3 @@ const result = toHTML(result, options); // `options` is optional, `result` assum
 console.log(result);
 // => '<span><span class="minecraft-formatting-obfuscated" style="color: #FFFFFF;">;;; </span><span style="color: #FF5555;">A </span><span style="color: #55FF55; font-weight: bold;">Minecraft </span><span style="color: #FF5555;">Server </span><span class="minecraft-formatting-obfuscated" style="color: #FFFFFF;">;;;</span></span>'
 ```
-
-## Support
-
-If you require assistance with this library, you can ask within our official [Discord server](https://discord.gg/e7jgDYY).
